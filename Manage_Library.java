@@ -8,7 +8,7 @@ class Book{
     String writerName;
     int price;
     int quantity;
-    bool borrowed;
+    boolean borrowed;
     public Book(int id, String bN, String wN, int pr, int quan){
         bookId = id;
         bookName = bN;
@@ -26,7 +26,7 @@ class Admin{
 class User{
         String Name;
         String Passwork;
-        Vector<Int> Book_Borrowed; // Tên sách mà user mượn. Tối đa 5 quyển sách. 
+        Vector<Integer> Book_Borrowed; // Tên sách mà user mượn. Tối đa 5 quyển sách. 
 }
 class Library{
     Vector<Book> books;
