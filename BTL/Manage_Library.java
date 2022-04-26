@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.*;
+import java.util.jar.Attributes.Name;
 
 
 public class Book{
@@ -27,36 +28,58 @@ public class Book{
     }
 
 }
+
+public class User_Book_Lent{
+    private int Id_user;
+    private String Name_user;
+    public User_Book_Lent(int id_u, String name_u){
+        Id_user = id_u;
+        Name_user = name_u;
+    }
+    public int getId_user(){
+        return Id_user;
+    }
+    public String getName_user(){
+        return Name_user;
+    }
+}
+
 public class Admin{
     private String Name;
     private String Passwork;
-    private Hashtable<Integer, String> User_Book_Lent; // Lưu id, và tên của user mượn sách. 
+
     public Admin(String name, String pass){
-        User_Book_Lent = new Hashtable<Integer, String>();
         Name = name;
         Passwork = pass;
     }
+
     public String getName(){
         return Name;
     }
+
     public String getPasswork(){
         return Passwork;
     }
-    public int get_id_book_lent(int idex){
-        
-    }
+
+
 
 }
 public class Library{
+
     private Vector<Book> books;
-    private Vector<Admin> admin;
+    private Vector<Admin> admins;
+    // viết thêm 1 véc tơ kiểu class User_Book_Lent
     public Library(){
         books = new Vector<Book>();
-        admin = new Vector<Admin>();
+        admins = new Vector<Admin>();
+        //
     }
+    
+
     public void add_Book(Book bookNeedAdd){
         Win.books.add(bookNeedAdd);
     }
+
     public static void delete_Book(Book bookNeedDelete){
         int length = Win.books.size();
         for(int indexOfBook = 0; indexOfBook < length; indexOfBook++){
@@ -66,6 +89,7 @@ public class Library{
             }
         }
     }
+
     public static Vector<Book> search_Book(String bookNeedSearch){
         Vector<Book> stringOfBook = new Vector<Book>();
         bookNeedSearch = bookNeedSearch.toLowerCase();
