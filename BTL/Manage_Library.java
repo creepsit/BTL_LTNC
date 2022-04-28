@@ -69,13 +69,27 @@ public class Library{
     private Vector<Book> books;
     private Vector<Admin> admins;
     // viết thêm 1 véc tơ kiểu class User_Book_Lent
+    private Vector<User_Book_Lent> UBookLents;
     public Library(){
         books = new Vector<Book>();
         admins = new Vector<Admin>();
-        //
+        UBookLents = new Vector<User_Book_Lent>();
     }
-    
-
+    public void add_UserBookLent(User_Book_Lent userbooklent){
+        Win.UBookLents.add(userbooklent);
+    }
+    public  Vector<User_Book_Lent> getUBookLents(){
+        return UBookLents;
+    }
+    public static void delete_User_Book_Lent(User_Book_Lent UBLNeedDelete){
+        int length = Win.UBookLents.size();
+        for(int i = 0; i< length ; i++){
+            if(Win.UBookLents.get(i) == UBLNeedDelete){
+                Win.UBookLents.remove(i);
+                return;
+            }
+        }
+    }
     public void add_Book(Book bookNeedAdd){
         Win.books.add(bookNeedAdd);
     }
